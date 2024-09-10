@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import ar.edu.unlp.oo1.ejercicio2.impl.Producto;
+import ar.edu.unlp.oo1.ejercicio4.impl.Producto;
 
 public class ProductoTest {
 

@@ -1,17 +1,22 @@
-package ar.edu.unlp.oo1.ejercicio2.impl;
+package ar.edu.unlp.oo1.ejercicio4.impl;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Ticket {
     private LocalDate fecha = LocalDate.now();
     private int cantidadDeProductos;
     private double pesoTotal;
     private double precioTotal;
+    private List<Producto> productos;
     
-    public Ticket(int cantidadDeProductos, double pesoTotal, double precioTotal) {
+    public Ticket(int cantidadDeProductos, double pesoTotal, double precioTotal, List<Producto> productos) {
         this.cantidadDeProductos = cantidadDeProductos;
         this.pesoTotal = pesoTotal;
         this.precioTotal = precioTotal;
+        this.productos = new ArrayList<>(productos);
+
     }
 
 
@@ -49,4 +54,7 @@ public class Ticket {
         return fecha;
     }
     
+public List<Producto> getProductos(){
+        return this.productos;
+    }
 }

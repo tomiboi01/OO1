@@ -6,9 +6,9 @@ import java.time.LocalDate;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import ar.edu.unlp.oo1.ejercicio2.impl.Balanza;
-import ar.edu.unlp.oo1.ejercicio2.impl.Producto;
-import ar.edu.unlp.oo1.ejercicio2.impl.Ticket;
+import ar.edu.unlp.oo1.ejercicio4.impl.Balanza;
+import ar.edu.unlp.oo1.ejercicio4.impl.Producto;
+import ar.edu.unlp.oo1.ejercicio4.impl.Ticket;
 public class BalanzaTest {
  
   private Balanza balanza;
