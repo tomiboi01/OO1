@@ -8,9 +8,11 @@ public class Farola {
     private List<Farola> neighbors = new ArrayList<Farola>();
     public void pairWithNeighbor( Farola otraFarola)
     {
-        this.neighbors.add(otraFarola);
-        if (!otraFarola.getNeighbors().contains(this))
+        if (!this.neighbors.contains(otraFarola))
+        {
+            this.neighbors.add(otraFarola);
             otraFarola.pairWithNeighbor(this);
+        }
     }
     /*
     * Retorna sus farolas vecinas
@@ -27,13 +29,8 @@ public class Farola {
     public void turnOn()
     {
         this.prendida = true;
-        for (Farola n: neighbors)
-        {
-        if (!n.isOn()) 
-            {
-                n.turnOn();
-            }
-        }
+        this.neighbors.stream().forEach(f -> {if (f.isOff()) f.turnOn();});
+        
     }
 
     /*
@@ -42,13 +39,7 @@ public class Farola {
     public void turnOff()
     {
         this.prendida = false;
-        for (Farola n: neighbors)
-        {
-        if (n.isOn()) 
-            {
-                n.turnOff();
-            }
-        }
+        this.neighbors.stream().forEach(f -> {if (f.isOn()) f.turnOff();});
     }
 
     public boolean isOn() {

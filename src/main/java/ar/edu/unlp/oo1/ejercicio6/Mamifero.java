@@ -74,8 +74,13 @@ public class Mamifero {
     
     public boolean tieneComoAncestroA(Mamifero unMamifero)
     {
-        return
-            padre != null && (this.getPadre().equals(unMamifero) || this.getPadre().tieneComoAncestroA(unMamifero)) ||
-            madre != null && (this.getMadre().equals(unMamifero) || this.getMadre().tieneComoAncestroA(unMamifero));
+        return checkearPadre(this.padre, unMamifero) || checkearPadre(this.madre, unMamifero);
+    }
+
+    private boolean checkearPadre(Mamifero padre, Mamifero ancestro)
+    {
+        if (padre != null)
+            return padre.equals(ancestro) || padre.tieneComoAncestroA(ancestro);
+        return false;
     }
 }
