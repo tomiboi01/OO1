@@ -79,8 +79,7 @@ public class Mamifero {
 
     private boolean checkearPadre(Mamifero padre, Mamifero ancestro)
     {
-        if (padre != null)
-            return padre.equals(ancestro) || padre.tieneComoAncestroA(ancestro);
-        return false;
+            return padre != null ? padre.equals(ancestro) || padre.tieneComoAncestroA(ancestro) : false;
+
     }
 }

@@ -1,0 +1,3 @@
+Ejercicio 12.
+1. En los test hay que hacer checkeos de null, por ejemplo por variables no inicializadas?
+2. Hay que hacer un test por cada clase si o si?
