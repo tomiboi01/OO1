@@ -25,9 +25,6 @@ public class PlazoFijo implements ValorCalculable {
         this.porcentajeDeInteresDiario+=porcentajeDeInteresDiario;
     }
 
-
-
-
     @Override
     public double valorActual() {
         return montoDepositado + montoDepositado * (Duration.between(fechaDeConstitucion, LocalDate.now()).toDays());
