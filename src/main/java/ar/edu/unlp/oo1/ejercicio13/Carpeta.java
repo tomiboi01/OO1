@@ -5,11 +5,15 @@ import java.util.List;
 
 public class Carpeta {
     private String nombre;
-    private List<Email> emails = new ArrayList<Email>();
+    private List<Email> emails;
 
     public Carpeta(String nombre)
     {
+        this();
         this.nombre=nombre;
+    }
+    public Carpeta() {
+        emails = new ArrayList<Email>();
     }
     public String getNombre() {
         return nombre;
@@ -21,7 +25,6 @@ public class Carpeta {
         destino.agregarEmail(email);
     }
 
-    // está bien agregar estos métodos?
 
     public void agregarEmail(Email email)
     {

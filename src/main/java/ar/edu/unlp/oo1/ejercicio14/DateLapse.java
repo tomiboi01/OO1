@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class DateLapse implements LapseInterface {
     private LocalDate from;
-    public LocalDate to;
+    private LocalDate to;
 
     public DateLapse(LocalDate from, LocalDate to)
     {
@@ -27,7 +27,21 @@ public class DateLapse implements LapseInterface {
 
     public boolean includesDate(LocalDate other)
     {
-        return from.isBefore(other) && to.isAfter(other);
+        return (this.from.isBefore(other) || this.from.isEqual(other)) && to.isAfter(other) || this.to.isEqual(other);
     }
     
+    public boolean overlaps (DateLapse anotherDateLapse )
+    {
+        return this.includesDate(anotherDateLapse.getFrom()) || this.includesDate(anotherDateLapse.getTo())
+        || anotherDateLapse.estaContenidoEn(anotherDateLapse);
+
+    }
+
+    public boolean estaContenidoEn(DateLapse datelapse)
+    {
+        return 
+            (this.from.equals(datelapse.getFrom()) || this.from.isAfter(datelapse.getFrom())) 
+            && 
+            (this.to.equals(datelapse.getTo()) || this.to.isBefore(datelapse.getTo()));
+    }
 }

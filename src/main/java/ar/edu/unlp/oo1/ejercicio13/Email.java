@@ -9,9 +9,16 @@ public class Email {
     private String cuerpo;
     
     public Email(String titulo, String cuerpo) {
+        this();
         this.titulo = titulo;
         this.cuerpo = cuerpo;
+        
+    }
+
+    public Email(){
         this.adjuntos = new ArrayList<Archivo>();
+        this.titulo = "";
+        this.cuerpo = "";
     }
 
     public String getTitulo() {
@@ -20,17 +27,33 @@ public class Email {
     public String getCuerpo() {
         return cuerpo;
     }
+
     
+    
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public void setCuerpo(String cuerpo) {
+        this.cuerpo = cuerpo;
+    }
+
     public List<Archivo> adjuntos() {
         return this.adjuntos;
     }
 
     public int tamaño()
     {
-        return this.titulo.length() + this.cuerpo.length() + this.adjuntos.stream().mapToInt(a -> a.tamaño()).sum();
+        int tamañoCuerpo = this.cuerpo != null ? cuerpo.length() : 0;
+        int tamañoTitulo = this.titulo != null ? titulo.length() : 0;
+        return tamañoCuerpo + tamañoTitulo + this.adjuntos.stream().mapToInt(a -> a.tamaño()).sum();
     
     }
 
+    public void agregarAdjunto(Archivo archivo) {
+        this.adjuntos.add(archivo);
+    }
+    
     
     
     

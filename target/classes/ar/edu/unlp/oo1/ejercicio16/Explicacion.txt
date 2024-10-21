@@ -1,0 +1,3 @@
+Se debe heredar de la clase AbstractSet que implementa varios métodos de la interfaz Set.
+Se debe redefinir el método add() : Boolean para que solo permita agregar números pares
+Se debe implementar los métodos size() e iterator() usando streams 

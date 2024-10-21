@@ -10,6 +10,7 @@ public class ClienteDeCorreo {
     public ClienteDeCorreo() {
         carpetas = new ArrayList<Carpeta>();
         inbox = new Carpeta("inbox");
+        this.carpetas.add(inbox);
     }
 
     public int espacioOcupado()
