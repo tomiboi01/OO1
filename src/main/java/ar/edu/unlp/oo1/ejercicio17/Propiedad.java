@@ -1,9 +1,10 @@
 package ar.edu.unlp.oo1.ejercicio17;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
-import ar.edu.unlp.oo1.ejercicio14.DateLapse;
+import ar.edu.unlp.oo1.ejercicio14.LapseInterface;
 import ar.edu.unlp.oo1.ejercicio18.PoliticaCancelacion;
 
 public class Propiedad {
@@ -11,9 +12,17 @@ public class Propiedad {
     private String nombreDescriptivo;
     private double precioXNoche;
     private PoliticaCancelacion polCancelacion;
+    private List<LapseInterface> lapsosReservas; 
 
-    private List<DateLapse> lapsosReservas; 
 
+
+    public Propiedad(String direccion, String nombreDescriptivo, double precioXNoche, PoliticaCancelacion politicaCancelacion) {
+        this.direccion = direccion;
+        this.nombreDescriptivo = nombreDescriptivo;
+        this.precioXNoche = precioXNoche;
+        this.polCancelacion = politicaCancelacion;
+        lapsosReservas = new ArrayList<LapseInterface>();
+    }
     public String getDireccion() {
         return direccion;
     }
@@ -33,56 +42,57 @@ public class Propiedad {
         this.precioXNoche = precioXNoche;
     }
 
-    public boolean crearReserva(DateLapse lapso)
+    public boolean crearReserva(LapseInterface lapso)
     {
         if (yaEstaReservadaParaElLapso(lapso))
         {
-            return 0;
+            return false;
         }
         reservarSinCheckear(lapso);
-        return polCancelacion.MultiplicadorMontoAReembolsar(lapso.getFrom()) * precioXNoche;
+        return true;
     }
-
-    private void reservarSinCheckear(DateLapse d)
+    private void reservarSinCheckear(LapseInterface lapso)
     {
-        lapsosReservas.add(d);
+        lapsosReservas.add(lapso);
     }
 
-    private boolean yaEstaReservadaParaElLapso(DateLapse fecha)
+    public boolean yaEstaReservadaParaElLapso(LapseInterface lapso)
     {
-        return lapsosReservas.stream().filter(l -> l.overlaps(l)).count() != 0;
-
+        return lapsosReservas.stream().filter(l -> l.overlaps(lapso)).count() != 0;
     }
 
-    public double getPrecioReserva(DateLapse lapso){
-        return (this.precioXNoche * lapso.sizeInDays()) - 1;
-    }
+    
 
-    public boolean estaSiendoUsadaAhora()
-    {
-        return lapsosReservas.stream().filter(l -> l.includesDate(LocalDate.now())).findFirst().orElse(null) != null;
-    }
+    
 
-    public boolean cancelarReserva(DateLapse datelapse)
+    public double cancelarReserva(LapseInterface lapso)
     {
         if (estaSiendoUsadaAhora())
         {
-            return false;
+            return 0;
         }
-        cancelarSinCheckear(datelapse);
-        return true;
+        cancelarSinCheckear(lapso);
+        return polCancelacion.MultiplicadorMontoAReembolsar(lapso.getFrom()) * precioXNoche;
 
     }
 
-    private void cancelarSinCheckear(DateLapse datelapse)
+    private void cancelarSinCheckear(LapseInterface datelapse)
     {
         lapsosReservas.remove(datelapse);
     }
 
-    public double calcularPrecioTotalReservasEntre(DateLapse datelapse)
+    private boolean estaSiendoUsadaAhora()
+    {
+        return lapsosReservas.stream().filter(l -> l.includesDate(LocalDate.now())).findFirst().orElse(null) != null;
+    }
+
+    public double getPrecioReserva(LapseInterface lapso){
+        return this.precioXNoche * lapso.sizeInDays();
+    }
+
+    public double calcularPrecioTotalReservasEntre(LapseInterface datelapse)
     {
         return this.lapsosReservas.stream().filter(l -> l.overlaps(datelapse)).mapToDouble(l -> l.sizeInDays()).sum() * precioXNoche;
     }
-
 
 }

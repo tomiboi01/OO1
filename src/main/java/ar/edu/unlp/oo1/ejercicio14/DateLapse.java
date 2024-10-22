@@ -30,18 +30,18 @@ public class DateLapse implements LapseInterface {
         return (this.from.isBefore(other) || this.from.isEqual(other)) && to.isAfter(other) || this.to.isEqual(other);
     }
     
-    public boolean overlaps (DateLapse anotherDateLapse )
+    public boolean overlaps (LapseInterface anotherDateLapse )
     {
         return this.includesDate(anotherDateLapse.getFrom()) || this.includesDate(anotherDateLapse.getTo())
         || anotherDateLapse.estaContenidoEn(anotherDateLapse);
 
     }
 
-    public boolean estaContenidoEn(DateLapse datelapse)
+    public boolean estaContenidoEn(LapseInterface anotherLapseInterface)
     {
         return 
-            (this.from.equals(datelapse.getFrom()) || this.from.isAfter(datelapse.getFrom())) 
+            (this.from.equals(anotherLapseInterface.getFrom()) || this.from.isAfter(anotherLapseInterface.getFrom())) 
             && 
-            (this.to.equals(datelapse.getTo()) || this.to.isBefore(datelapse.getTo()));
+            (this.to.equals(anotherLapseInterface.getTo()) || this.to.isBefore(anotherLapseInterface.getTo()));
     }
 }
