@@ -1,0 +1,14 @@
+Se debe heredar de la clase AbstractSet que implementa varios métodos de la interfaz Set.
+Se debe redefinir el método add() : Boolean para que solo permita agregar números pares
+Se debe implementar los métodos size() e iterator() usando streams 
+
+TreeSet tiene complejidad O(logN) para las operaciones add, remove y contains
+Pero permite ordenar los elementos con su orden natural o con un comparador
+
+HashSet tiene complejdad O(1) para las operaciones add, remove, contains y size, y 
+no tiene un orden constante de elementos
+
+LinkedHashSet tiene complejidad O(1) para las operaciones add, remove y contains, y además 
+tiene un orden dado por la inserción de los elementos. Es un poquito más costoso que el HashSet 
+pero no tanto como el TreeSetEn este el costo de iteración depende del tamaño del set, 
+a diferencia del HashSet que depende de la capacidad.

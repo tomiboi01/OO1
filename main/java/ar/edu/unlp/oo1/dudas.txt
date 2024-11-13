@@ -1,4 +1,0 @@
-- testear constructores?
-- testear el método calcularRecaudacionDeServicios() 
-de mascota con todos los servicios posibles?
-- ej test viaje, está bien usar setters de vehiculo para no tener q hacer nuevos objetos?
