@@ -1,0 +1,41 @@
+clase Mascota 
+    - Dar de alta servicio
+        - dar de alta servicio consulta medica
+        - dar de alta servicio vacunacion
+        - dar de alta servicio guardería
+    - CalcularRecaudacionEnFecha
+        - Con ningun servicio
+        - Con un servicio de consulta medica
+        - Con un servicio de vacunacion
+        - Con un servicio de guardería
+        - Con un servicio de otra fecha
+    - UtilizoCincoServiciosOMas
+        - Con 4 servicios
+        - Con 5 servicios
+        - Con 6 servicios
+clase Medico
+    - calcularAntiguedad
+        - Con fecha 5 años y un día antes
+        - Con fecha 5 años antes
+        - Con fecha 4 años y 364 días antes
+Clase ServicioMedico
+    - costoAtencionEnDomingos()
+        - Con un día que es domingo
+        - Con un día que no es domingo
+    - calcularCosto()
+        - Con una consulta medica
+        - Con una vacunación
+Clase ConsultaMedica
+    - CalcularCosto()
+        - Con un día que es domingo
+        - Con un día que no es domingo
+Clase ServicioGuarderia
+    - calcularCosto()
+        - Con 4 servicios con cualquier cantidad de días
+        - Con 5 servicios con cualquier cantidad de días
+        - Con 6 servicios con cualquier cantidad de días 
+        //importa que tipo de servicio?
+        //probar si se ingresa una cantidad de días negativa?
+Clase Vacunacion
+    -
+
