@@ -6,15 +6,13 @@ public class Medico {
     private String nombre;
     private LocalDate fechaDeIngreso;
     private double honorarios;
-    private Mascota mascota;
 
     
 
-    public Medico(String nombre, LocalDate fechaDeIngreso, double honorarios, Mascota mascota) {
+    public Medico(String nombre, LocalDate fechaDeIngreso, double honorarios) {
         this.nombre = nombre;
         this.fechaDeIngreso = fechaDeIngreso;
         this.honorarios = honorarios;
-        this.mascota = mascota;
     }
 
     

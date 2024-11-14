@@ -30,4 +30,14 @@ public abstract class Usuario {
     {
         return this.saldo < 0;
     }
+
+    public boolean agregarViaje(Viaje viaje) {
+        if (this.tieneSaldoEnRojo()) 
+        {
+            return false;
+        }
+        this.viajes.add(viaje);
+        return true;
+
+    }
 }

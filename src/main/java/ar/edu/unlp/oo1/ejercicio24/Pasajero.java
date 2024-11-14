@@ -33,15 +33,7 @@ public class Pasajero extends Usuario{
     return this.viajes.stream().anyMatch(v->!v.getFecha().isBefore(haceXDias) && !v.getFecha().isAfter(LocalDate.now()));
     }
 
-    public boolean agregarViaje(Viaje viaje) {
-        if (this.tieneSaldoEnRojo()) 
-        {
-            return false;
-        }
-        this.viajes.add(viaje);
-        return true;
-
-    }
+    
 
     
 }

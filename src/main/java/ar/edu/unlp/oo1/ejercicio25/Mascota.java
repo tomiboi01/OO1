@@ -9,14 +9,13 @@ public class Mascota {
     private LocalDate fechaDeNacimiento;
     private String especie;
     private List<Servicio> serviciosUsados;
-    private Medico medico;
 
-    public Mascota(String nombre, LocalDate fechaDeNacimiento, String especie, Medico medico) {
+    public Mascota(String nombre, LocalDate fechaDeNacimiento, String especie) {
         this.nombre = nombre;
         this.fechaDeNacimiento = fechaDeNacimiento;
         this.especie = especie;
         this.serviciosUsados = new ArrayList<Servicio>();
-        this.medico = medico;
+
     }
 
     public boolean utilizoNServiciosOMas(int n)

@@ -1,5 +1,8 @@
 package ar.edu.unlp.oo1.ejercicio25;
 
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+
 public abstract class ServicioMedico extends Servicio{
     protected Medico medico;
 
@@ -10,6 +13,13 @@ public abstract class ServicioMedico extends Servicio{
         this.medico = medico;
     }
 
+    public ServicioMedico(Mascota mascota,  Medico medico, LocalDate fecha) {
+        super(mascota, fecha);
+        this.medico = medico;
+    }
+
+
+
     public double calcularCosto()
     {
         return this.medico.costoHonorarios() + costoMateriales() + costoAtencionDomingos();
@@ -17,7 +27,11 @@ public abstract class ServicioMedico extends Servicio{
 
     public double costoAtencionDomingos()
     {
-        return 200;
+        if (fecha.getDayOfWeek().equals(DayOfWeek.SUNDAY))
+        {
+            return 200;
+        }
+        return 0;
     }
     public abstract double costoMateriales();
 

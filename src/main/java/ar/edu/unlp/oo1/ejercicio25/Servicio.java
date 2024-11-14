@@ -11,7 +11,16 @@ public abstract class Servicio {
     public Servicio(Mascota mascota)
     {
         this.mascota = mascota;
+        this.fecha = LocalDate.now();
     }
+
+    public Servicio(Mascota mascota, LocalDate fecha)
+    {
+        this.mascota = mascota;
+        this.fecha = fecha;
+    }
+
+
 
     public LocalDate getFecha() {
         return fecha;
