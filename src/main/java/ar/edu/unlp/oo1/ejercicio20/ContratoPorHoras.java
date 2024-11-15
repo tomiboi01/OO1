@@ -7,6 +7,13 @@ public class ContratoPorHoras extends Contrato {
     public double montoHora;
     public int horasPorMes;
 
+    public ContratoPorHoras (LocalDate fechaDeInicio, LocalDate fechaDeFin, double montoHora, int horasPorMes)
+    {
+        super(fechaDeInicio);
+        this.fechaDeFin = fechaDeFin;
+        this.montoHora = montoHora;
+        this.horasPorMes = horasPorMes;
+    }
 
     public LocalDate getFechaDeFin() {
         return fechaDeFin;

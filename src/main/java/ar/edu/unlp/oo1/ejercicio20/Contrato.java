@@ -7,6 +7,10 @@ public abstract class Contrato {
 
     
 
+    public Contrato(LocalDate fechaDeInicio) {
+        this.fechaDeInicio = fechaDeInicio;
+    }
+
     public abstract double calcularSueldo();
 
     public abstract int duracionContratoEnDias();

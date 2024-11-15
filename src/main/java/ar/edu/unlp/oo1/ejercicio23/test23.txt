@@ -1,0 +1,45 @@
+clase Cliente
+    - crearPedido(Vendedor vendedor, Producto producto, int cantidad, FormaDePago formaDePago, FormaDeEnvio formaDeEnvio)
+        - caso en que producto no tenga suficiente stock
+        - caso en que producto tenga suficiente stock
+    cantidadPorCategoria() : Bag<Producto>
+        - caso en que no haya ningun producto
+        - caso en que haya al menos un producto
+interfaz FormaDeEnvio
+    - metodo calcularCosto()
+        - caso en que sea un envio express
+        - caso en que sea un retiro en comercio
+        - caso en que sea un retiro en sucursal
+interfaz FormaDePago
+    - metodo calcularPrecioFinal(double monto);
+        - caso que sea de 6 cuotas con cualuier monto
+        - caso que sea al contado con cualquier monto
+
+// caso en que manda monto negativo? 
+
+clase Vendedor no testeo, no tieme metodos complejos
+
+clase Pedido
+    - calcularCostoSinAdicionales()
+        - pruebo con un valor de cantidad y precio de producto cualquiera
+    -  calcularCosto()
+        - caso que sea de 6 cuotas con cualquier monto
+            - caso en que sea un envio express
+            - caso en que sea un retiro en comercio
+            - caso en que sea un retiro en sucursal
+
+        - caso que sea al contado con cualquier monto
+            - caso en que sea un envio express
+            - caso en que sea un retiro en comercio
+            - caso en que sea un retiro en sucursal
+
+clase FormaDeEnvioExpress
+    - metodo calcularCosto()
+        . pruebo con direcciones cualquiera
+
+clase Producto
+    - metodo decrementarStock
+
+clase CalculadoraDistancia()
+    - distanciaEntre(direccion1: String, direccion2:String)
+        - pruebo con dos direcciones cualquiera.

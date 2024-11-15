@@ -10,6 +10,7 @@ public class Empleado {
     private int CUIL;
     private LocalDate fechaDeNacimiento;
     private boolean tieneHijosACargo;
+    private boolean tieneConyujeACargo;
 
     private ContratoPlanta contratoPlanta;
 
@@ -46,6 +47,9 @@ public class Empleado {
         this.tieneHijosACargo = tieneHijosACargo;
     }
 
+    public boolean isTieneConyujeACargo() {
+        return tieneConyujeACargo;
+    }
     public void agregarContratoPorHora(ContratoPorHoras contratoPorHora)
     {
         this.contratosPorHora.add(contratoPorHora);
@@ -60,12 +64,16 @@ public class Empleado {
     {
         double multiplicadorMontoAdicional=calcularPorcentajeMontoAdicional(this.getAntiguedadEmpleado())/100;
         double sueldo=0;
+        if ( contratoPlanta != null)
+        {
+            sueldo+=contratoPlanta.calcularSueldo();
+        }
+        else
+        {
 
-        sueldo += contratoPlanta  != null ? contratoPlanta.calcularSueldo(): 0;
-
-        ContratoPorHoras contratoPorHorasActivo=this.getContratoPorHorasActivo();
-        sueldo+=contratoPorHorasActivo !=null ? contratoPorHorasActivo.calcularSueldo() : 0;
-
+            ContratoPorHoras contratoPorHorasActivo=this.getContratoPorHorasActivo();
+            sueldo+=contratoPorHorasActivo !=null ? contratoPorHorasActivo.calcularSueldo() : 0;
+        }
         return sueldo + sueldo * multiplicadorMontoAdicional;
     }
 

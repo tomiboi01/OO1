@@ -21,4 +21,9 @@ public class Producto {
         return this.stock;
     }
 
+    public void decrementarStock(int cantidad)
+    {
+        this.stock-=cantidad;   
+    }
+
 }

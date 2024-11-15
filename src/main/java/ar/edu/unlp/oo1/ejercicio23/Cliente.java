@@ -17,6 +17,7 @@ public class Cliente extends Persona {
         if (producto.getStock() < cantidad) {
             return false;
         }
+        producto.decrementarStock(cantidad);
         Pedido pedido = new Pedido(this, vendedor, producto, cantidad,formaDePago, formaDeEnvio);
         this.pedidos.add(pedido);
         return true;

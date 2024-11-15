@@ -20,17 +20,12 @@ public class Pedido {
 
     public double calcularCosto()
     {
-        return this.formaDePago.calcularPrecioFinal(this.calcularCostoSinAdicionales()) + this.formaDeEnvio.calcularCosto(this.calcularKm());
+        return this.formaDePago.calcularPrecioFinal(this.calcularCostoSinAdicionales()) + this.formaDeEnvio.calcularCosto();
     }
 
     private double calcularCostoSinAdicionales()
     {
         return producto.getPrecio() * cantidad;
-    }
-    
-    private int calcularKm()
-    {
-        return new CalculadoraDeDistancia().distanciaEntre(vendedor.getDireccion(), cliente.getNombre());
     }
 
     public Producto getProducto() {
