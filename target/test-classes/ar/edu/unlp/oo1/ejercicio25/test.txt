@@ -37,4 +37,7 @@ Clase ServicioGuarderia
         //importa que tipo de servicio?
         //probar si se ingresa una cantidad de días negativa?
 Clase Vacunacion
-   - Calc
+   - CalcularCosto()
+        - Con un día que es domingo
+        - Con un día que no es domingo
+
